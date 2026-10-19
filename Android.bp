@@ -1,0 +1,89 @@
+package {
+    default_applicable_licenses: ["external_scudo_license"],
+}
+
+license {
+    name: "external_scudo_license",
+    visibility: [":__subpackages__"],
+    license_kinds: [
+        "SPDX-license-identifier-Apache-2.0",
+        "SPDX-license-identifier-BSD",
+        "SPDX-license-identifier-MIT",
+        "SPDX-license-identifier-NCSA",
+    ],
+    license_text: [
+        "LICENSE.TXT",
+    ],
+}
+
+prebuilt_apex {
+    name: "org.blisslabs.ag.scudo",
+    apex_name: "org.blisslabs.ag.scudo",
+    source_apex_name: "org.blisslabs.ag.scudo",
+    arch: {
+        x86_64: {
+            src: "org.blisslabs.ag.scudo.apex",
+        },
+    },
+    filename: "org.blisslabs.ag.scudo.apex",
+    prefer: true,
+    installable: true,
+}
+
+cc_library_headers {
+    name: "scudo_headers",
+    ramdisk_available: true,
+    recovery_available: true,
+    vendor_ramdisk_available: true,
+    host_supported: true,
+    export_include_dirs: [
+        "dev-src/include",
+    ],
+    apex_available: [
+        "com.android.runtime",
+        "//apex_available:platform",
+    ],
+    visibility: [
+        "//system/core/debuggerd",
+    ],
+}
+
+cc_prebuilt_library_static {
+    name: "libscudo",
+    vendor_available: true,
+    product_available: true,
+    recovery_available: true,
+    ramdisk_available: true,
+    vendor_ramdisk_available: true,
+    host_supported: true,
+    arch: {
+        x86_64: {
+            srcs: ["dev-src/lib/libscudo.a"],
+        },
+    },
+    export_include_dirs: [
+        "dev-src/include",
+    ],
+    prefer: true,
+    apex_available: [
+        "com.android.runtime",
+        "//apex_available:platform",
+    ],
+}
+
+cc_prebuilt_library_static {
+    name: "libscudo_for_testing",
+    vendor_available: true,
+    product_available: true,
+    recovery_available: true,
+    host_supported: true,
+    arch: {
+        x86_64: {
+            srcs: ["dev-src/lib/libscudo_for_testing.a"],
+        },
+    },
+    export_include_dirs: [
+        "dev-src/include",
+    ],
+    prefer: true,
+}

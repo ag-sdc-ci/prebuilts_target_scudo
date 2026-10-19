@@ -1,0 +1,6 @@
+shadow prebuilt repo: scudo (target)
+  upstream: platform/external/scudo
+  api-level: 34 (branch 34-20261019)
+  blobs: org.blisslabs.ag.scudo.apex org.blisslabs.ag.scudo.dev.apex org.blisslabs.ag.scudo.doc.apex
+  dev-src: extracted dev payload + regenerated root Android.bp
+  date: 2026-10-19

@@ -1,0 +1,16 @@
+{
+	"provideLibs": [	
+		    "libdummy_binary_libscudo-for-testing.a-x86_64-v2.so",
+		    "libdummy_binary_libscudo-for-testing.a.so",
+		    "libdummy_binary_libscudo.a-x86_64-v2.so",
+		    "libdummy_binary_libscudo.a.so",
+		    "libdummy_headers_scudo-x86_64-v2.so",
+		    "libdummy_headers_scudo.so",
+		    "libdummy_scudo_dev-x86_64-v2.so",
+		    "libdummy_scudo_dev.so"
+	],
+	"requireLibs": [	
+		    "libc.so"
+	],
+	"visible": true
+}
