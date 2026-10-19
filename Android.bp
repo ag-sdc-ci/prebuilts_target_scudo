@@ -56,6 +56,8 @@ cc_prebuilt_library_static {
     ramdisk_available: true,
     vendor_ramdisk_available: true,
     host_supported: true,
+    stl: "none",
+    system_shared_libs: [],
     arch: {
         x86_64: {
             srcs: ["dev-src/lib/libscudo.a"],
@@ -77,6 +79,8 @@ cc_prebuilt_library_static {
     product_available: true,
     recovery_available: true,
     host_supported: true,
+    stl: "none",
+    system_shared_libs: [],
     arch: {
         x86_64: {
             srcs: ["dev-src/lib/libscudo_for_testing.a"],
