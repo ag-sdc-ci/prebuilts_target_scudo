@@ -30,21 +30,3 @@ prebuilt_apex {
     installable: true,
 }
 
-cc_library_headers {
-    name: "scudo_headers",
-    ramdisk_available: true,
-    recovery_available: true,
-    vendor_ramdisk_available: true,
-    host_supported: true,
-    export_include_dirs: [
-        "dev-src/include",
-    ],
-    apex_available: [
-        "com.android.runtime",
-        "//apex_available:platform",
-    ],
-    visibility: [
-        "//system/core/debuggerd",
-    ],
-}
-
