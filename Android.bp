@@ -1,9 +1,9 @@
 package {
-    default_applicable_licenses: ["external_scudo_license"],
+    default_applicable_licenses: ["scudo_shadow_license"],
 }
 
 license {
-    name: "external_scudo_license",
+    name: "scudo_shadow_license",
     visibility: [":__subpackages__"],
     license_kinds: [
         "SPDX-license-identifier-Apache-2.0",
@@ -48,46 +48,3 @@ cc_library_headers {
     ],
 }
 
-cc_prebuilt_library_static {
-    name: "libscudo",
-    vendor_available: true,
-    product_available: true,
-    recovery_available: true,
-    ramdisk_available: true,
-    vendor_ramdisk_available: true,
-    host_supported: true,
-    stl: "none",
-    system_shared_libs: [],
-    arch: {
-        x86_64: {
-            srcs: ["dev-src/lib/libscudo.a"],
-        },
-    },
-    export_include_dirs: [
-        "dev-src/include",
-    ],
-    prefer: true,
-    apex_available: [
-        "com.android.runtime",
-        "//apex_available:platform",
-    ],
-}
-
-cc_prebuilt_library_static {
-    name: "libscudo_for_testing",
-    vendor_available: true,
-    product_available: true,
-    recovery_available: true,
-    host_supported: true,
-    stl: "none",
-    system_shared_libs: [],
-    arch: {
-        x86_64: {
-            srcs: ["dev-src/lib/libscudo_for_testing.a"],
-        },
-    },
-    export_include_dirs: [
-        "dev-src/include",
-    ],
-    prefer: true,
-}
